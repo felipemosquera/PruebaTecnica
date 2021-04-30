@@ -1,0 +1,49 @@
+<div *ngIf="users | async as users">
+  <table>
+      <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Documento</th>
+          <th>Email</th>
+      </tr>
+
+      <tr *ngFor="let user of users">
+        <td>{{user.Id}}</td>
+        <td>{{user.CompleteName}}</td>
+        <td>{{user.CompleteDocument}}</td>
+        <td>{{user.Email}}</td>
+      </tr>
+
+  </table>
+</div>
+
+<div>
+    <form 
+        [formGroup] ="resgisterForm"
+    >
+      <label >Nombre</label>
+      <input type="text" formControlName="Name" placeholder="Nombre">
+
+      <label >Apellido</label>
+      <input type="text" formControlName="LastName" placeholder="Apellido">
+  
+      <label >Documento</label>
+      <input maxlength="10" type="text" formControlName="Document" placeholder="Documento">
+
+      <label >Email</label>
+      <input type="text" formControlName="Email" placeholder="Email">
+  
+      <label for="country">Tipo de Documento</label>
+      <select  formControlName="DocumentType">
+        <option value="CC">CC</option>
+      </select>    
+    </form>
+    
+    <form 
+    [formGroup] ="UserForm"
+    > 
+    <label >Contraseña</label>
+    <input type="text" formControlName="password" placeholder="Contraseña">
+  </form>
+  <input type="submit" (click)="submit()">
+  </div>
