@@ -1,5 +1,5 @@
-<div *ngIf="users | async as users">
-  <table>
+<div *ngIf="isLogin">
+  <table  *ngIf="users | async as users">
       <tr>
           <th>id</th>
           <th>Nombre</th>

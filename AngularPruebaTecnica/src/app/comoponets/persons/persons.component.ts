@@ -14,6 +14,7 @@ import { User } from '../../Models/user.model';
 export class PersonsComponent implements OnInit {
   users :Observable<any> = new Observable<any>();
   resgisterForm: FormGroup;
+  isLogin: any;
   UserForm:FormGroup;
   constructor(
     private apiService:ApiService,
@@ -38,7 +39,7 @@ export class PersonsComponent implements OnInit {
 
   ngOnInit(): void {
      let login = localStorage.getItem("login");
-     if(login != "true") this.router.navigate(['/'])
+     if(login != "true") this.isLogin = true;
     this.users = this.apiService.getPersons();
   }
 
